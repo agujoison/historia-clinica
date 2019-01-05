@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../shared/student';  // Student data type interface class
+import { Background } from '../shared/family-background';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';  // Firebase modules for Database, Data list and Single object
 
 @Injectable({
@@ -18,8 +19,9 @@ export class CrudService {
     this.studentsRef.push({
       firstName: student.firstName,
       lastName: student.lastName,
-      email: student.email,
-      mobileNumber: student.mobileNumber
+      address: student.address,
+      mobileNumber: student.mobileNumber,
+      dni: student.dni
     })
   }
 
@@ -40,8 +42,16 @@ export class CrudService {
     this.studentRef.update({
       firstName: student.firstName,
       lastName: student.lastName,
-      email: student.email,
-      mobileNumber: student.mobileNumber
+      address: student.address,
+      mobileNumber: student.mobileNumber,
+      dni: student.dni
+    })
+  }
+
+  // Update Student Object
+  UpdateBackground(background: Background) {
+    this.studentRef.update({
+      background
     })
   }
 

@@ -12,14 +12,14 @@ import { ToastrService } from 'ngx-toastr'; // Alert message using NGX toastr
 
 export class AddStudentComponent implements OnInit {
   public studentForm: FormGroup;  // Define FormGroup to student's form
- 
+
   constructor(
     public crudApi: CrudService,  // CRUD API services
     public fb: FormBuilder,       // Form Builder service for Reactive forms
     public toastr: ToastrService  // Toastr service for alert message
   ) { }
 
- 
+
   ngOnInit() {
     this.crudApi.GetStudentsList();  // Call GetStudentsList() before main form is being called
     this.studenForm();              // Call student form when component is ready
@@ -30,9 +30,10 @@ export class AddStudentComponent implements OnInit {
     this.studentForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: [''],
-      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
-    })  
+      address: ['', [Validators.required, Validators.minLength(2)]],
+      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      dni: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
+    })
   }
 
   // Accessing form control using getters
@@ -42,21 +43,25 @@ export class AddStudentComponent implements OnInit {
 
   get lastName() {
     return this.studentForm.get('lastName');
-  }  
+  }
 
-  get email() {
-    return this.studentForm.get('email');
+  get address() {
+    return this.studentForm.get('address');
   }
 
   get mobileNumber() {
     return this.studentForm.get('mobileNumber');
   }
 
+  get dni() {
+      return this.studentForm.get('dni');
+    }
+
   // Reset student form's values
   ResetForm() {
     this.studentForm.reset();
-  }  
- 
+  }
+
   submitStudentData() {
     this.crudApi.AddStudent(this.studentForm.value); // Submit student data using CRUD API
     this.toastr.success(this.studentForm.controls['firstName'].value + ' successfully added!'); // Show success message when data is successfully submited

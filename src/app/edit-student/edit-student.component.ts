@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 
 export class EditStudentComponent implements OnInit {
   editForm: FormGroup;  // Define FormGroup to student's edit form
-  
+
   constructor(
     private crudApi: CrudService,       // Inject CRUD API in constructor
     private fb: FormBuilder,            // Inject Form Builder service for Reactive forms
@@ -24,10 +24,10 @@ export class EditStudentComponent implements OnInit {
   ){ }
 
   ngOnInit() {
-    this.updateStudentData();   // Call updateStudentData() as soon as the component is ready 
+    this.updateStudentData();   // Call updateStudentData() as soon as the component is ready
     const id = this.actRoute.snapshot.paramMap.get('id');  // Getting current component's id or information using ActivatedRoute service
     this.crudApi.GetStudent(id).valueChanges().subscribe(data => {
-      this.editForm.setValue(data)  // Using SetValue() method, It's a ReactiveForm's API to store intial value of reactive form 
+      this.editForm.setValue(data)  // Using SetValue() method, It's a ReactiveForm's API to store intial value of reactive form
     })
   }
 
@@ -40,21 +40,26 @@ export class EditStudentComponent implements OnInit {
     return this.editForm.get('lastName');
   }
 
-  get email() {
-    return this.editForm.get('email');
+  get address() {
+    return this.editForm.get('address');
   }
 
   get mobileNumber() {
     return this.editForm.get('mobileNumber');
-  }  
+  }
+
+  get dni() {
+    return this.editForm.get('dni');
+  }
 
   // Contains Reactive Form logic
   updateStudentData() {
     this.editForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: [''],
-      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
+      address: ['', [Validators.required, Validators.minLength(2)]],
+      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      dni: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
     })
   }
 

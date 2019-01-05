@@ -25,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
+import { FamilyBackgroundComponent } from './family-background/family-background.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AppComponent } from './app.component';
     AppComponent,
     AddStudentComponent,
     StudentsListComponent,
-    EditStudentComponent
+    EditStudentComponent,
+    FamilyBackgroundComponent
   ],
   imports: [
     BrowserModule,

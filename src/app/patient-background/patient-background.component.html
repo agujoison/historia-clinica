@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Edit Patient background</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group">
+      <!-- goBack() methos to back to previous component -->
+      <button class="btn btn-sm btn-outline-secondary" (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="pricing-header form-block mx-auto">
+      <!-- Student's Edit Form -->
+      <form [formGroup]="editForm" (ngSubmit)="updateForm()" novalidate>
+        <div class="row">
+          <div class="col-lg-5 col-md-12 col-sm-12">
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label>Date of birth</label>
+                <input type="date" formControlName="dateOfBirth" class="form-control" required>
+                <p *ngIf="dateOfBirth.touched && dateOfBirth.invalid" class="error"><sup>*</sup>Please enter date of birth</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Tipo de parto</label>
+                <input type="text" formControlName="parto" class="form-control" required>
+                <p *ngIf="parto.touched && parto.invalid" class="error"><sup>*</sup>Please provide tipo de parto</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Birth Weight</label>
+                <input type="text" formControlName="peso" class="form-control" required>
+                <p *ngIf="peso.touched && peso.invalid" class="error"><sup>*</sup>Please provide weight</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Talla nacimiento</label>
+                <input type="text" formControlName="talla" class="form-control" required>
+                <p *ngIf="talla.touched && talla.invalid" class="error"><sup>*</sup>Please provide talla nacimiento</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Perímetro encefálico al nacimiento</label>
+                <input type="text" formControlName="perimetro" class="form-control" required>
+                <p *ngIf="perimetro.touched && perimetro.invalid" class="error"><sup>*</sup>Please provide perimetro</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Apgar</label>
+                <input type="text" formControlName="apgar" class="form-control" required>
+                <p *ngIf="apgar.touched && apgar.invalid" class="error"><sup>*</sup>Please provide apgar</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Grupo sanguineo y RH</label>
+                <input type="text" formControlName="sanguineo" class="form-control" required>
+                <p *ngIf="sanguineo.touched && sanguineo.invalid" class="error"><sup>*</sup>Please provide grupo sanguineo y RH</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Observaciones</label>
+                <input type="text" formControlName="observaciones" class="form-control" required>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Peso y edad en el alta</label>
+                <input type="text" formControlName="alta" class="form-control" required>
+                <p *ngIf="alta.touched && alta.invalid" class="error"><sup>*</sup>Please provide peso y edad en el alta</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Alimentación (PM o LMI)</label>
+                <input type="text" formControlName="alimentacion" class="form-control" required>
+                <p *ngIf="alimentacion.touched && alimentacion.invalid" class="error"><sup>*</sup>Please provide peso y edad en el alta</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Pesquisa: Metabolico</label>
+                <input type="text" formControlName="pesquisa" class="form-control" required>
+                <p *ngIf="pesquisa.touched && pesquisa.invalid" class="error"><sup>*</sup>Please provide pesquisa: metabolico</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>OEA: PASO / NO PASO </label>
+                  <input type="text" formControlName="oea" class="form-control" required>
+                <p *ngIf="oea.touched && oea.invalid" class="error"><sup>*</sup>Please provide OEA</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Fonde de ojo </label>
+                <input type="text" formControlName="ojo" class="form-control" required>
+                <p *ngIf="ojo.touched && ojo.invalid" class="error"><sup>*</sup>Please provide OEA</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Suplementos </label>
+                <input type="text" formControlName="suplementos" class="form-control" required>
+                <p *ngIf="suplementos.touched && suplementos.invalid" class="error"><sup>*</sup>Please provide suplementos</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Control odontológico </label>
+                <input type="text" formControlName="odontologico" class="form-control" required>
+                <p *ngIf="odontologico.touched && odontologico.invalid" class="error"><sup>*</sup>Please provide control odontológico</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Control traumatológico </label>
+                <input type="text" formControlName="traumatologico" class="form-control" required>
+                <p *ngIf="traumatologico.touched && traumatologico.invalid" class="error"><sup>*</sup>Please provide control traumatologico</p>
+              </div>
+            </div>
+            <div class="form-group text-right">
+              <button type="submit" class="btn btn-success btn-block" [disabled]="!editForm.valid">Update Patient background</button>
+            </div>
+          </div>
+        </div>
+      </form><!-- Student's Edit Form ends-->
+
+    </div>
+  </div>
+</div>

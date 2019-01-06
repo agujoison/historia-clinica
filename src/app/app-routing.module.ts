@@ -9,6 +9,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { StudentsListComponent } from './students-list/students-list.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { FamilyBackgroundComponent } from './family-background/family-background.component';
+import { PatientBackgroundComponent } from './patient-background/patient-background.component';
 
 // Routes array define component along with the path name for url
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'register-student', component: AddStudentComponent },
   { path: 'view-students', component: StudentsListComponent },
   { path: 'edit-student/:id', component: EditStudentComponent },
-  { path: 'family-background/:id', component: FamilyBackgroundComponent }
+  { path: 'family-background/:id', component: FamilyBackgroundComponent },
+  { path: 'patient-background/:id', component: PatientBackgroundComponent }
 ];
 
 // Import RouterModule and inject routes array in it and dont forget to export the RouterModule

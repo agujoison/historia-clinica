@@ -1,4 +1,5 @@
 import { Background } from '../shared/family-background';
+import { PatientBackground } from '../shared/patient-background';
 
 export interface Student {
    $key: string;
@@ -8,8 +9,5 @@ export interface Student {
    mobileNumber: Number;
    dni: Number;
    background: Background;
-   //father: string;
-   //mother: string;
-   //brothers: string;
-   //others: string;
+   patientBackground: PatientBackground;
 }

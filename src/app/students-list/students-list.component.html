@@ -48,6 +48,7 @@
             <!-- routerLink="/edit-student/{{student.$key}}" is refered to { path: 'edit-student/:id', component: EditStudentComponent } in app-routing.moudles.ts -->
             <i class="far fa-edit" routerLink="/edit-student/{{student.$key}}"></i>
             <i class="fas fa-users" routerLink="/family-background/{{student.$key}}"></i>
+            <i class="fas fa-child" routerLink="/patient-background/{{student.$key}}"></i>
             <i class="far fa-trash-alt" (click)="deleteStudent(student)"></i></td>
         </tr>
       </tbody>

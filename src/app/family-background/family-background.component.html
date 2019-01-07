@@ -36,6 +36,11 @@
                 <textarea type="text" formControlName="others" class="form-control" required></textarea>
                 <p *ngIf="others.touched && others.invalid" class="error"><sup>*</sup>Please provide grand parents and others background</p>
               </div>
+              <div class="col-md-12 mb-3">
+                <label>habitad - animales</label>
+                <textarea type="text" formControlName="habitad" class="form-control" required></textarea>
+                <p *ngIf="habitad.touched && habitad.invalid" class="error"><sup>*</sup>Please provide habitad</p>
+              </div>
             </div>
             <div class="form-group text-right">
               <button type="submit" class="btn btn-success btn-block" [disabled]="!editForm.valid">Update Patient</button>

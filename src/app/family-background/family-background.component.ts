@@ -48,6 +48,10 @@ export class FamilyBackgroundComponent implements OnInit {
     return this.editForm.get('others');
   }
 
+  get habitad() {
+    return this.editForm.get('habitad');
+  }
+
   // Contains Reactive Form logic
   updateStudentData() {
     this.editForm = this.fb.group({
@@ -55,6 +59,7 @@ export class FamilyBackgroundComponent implements OnInit {
       mother: [''],
       brothers: [''],
       others: [''],
+      habitad: ['']
     })
   }
 

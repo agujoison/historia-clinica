@@ -95,6 +95,21 @@
                 <input type="text" formControlName="traumatologico" class="form-control" required>
                 <p *ngIf="traumatologico.touched && traumatologico.invalid" class="error"><sup>*</sup>Please provide control traumatologico</p>
               </div>
+              <div class="col-md-12 mb-3">
+                <label>Vacunación (completa / no completa)</label>
+                <input type="text" formControlName="vacunacion" class="form-control" required>
+                <p *ngIf="vacunacion.touched && vacunacion.invalid" class="error"><sup>*</sup>Please provide vacunación</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Enfermedad (No / Si - Tratamiento)</label>
+                <input type="text" formControlName="enfermedad" class="form-control" required>
+                <p *ngIf="enfermedad.touched && enfermedad.invalid" class="error"><sup>*</sup>Please provide enfermedad</p>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label>Alergico (No / Si - Tratamiento)</label>
+                <input type="text" formControlName="alergico" class="form-control" required>
+                <p *ngIf="alergico.touched && alergico.invalid" class="error"><sup>*</sup>Please provide alergico</p>
+              </div>
             </div>
             <div class="form-group text-right">
               <button type="submit" class="btn btn-success btn-block" [disabled]="!editForm.valid">Update Patient background</button>

@@ -3,4 +3,5 @@ export interface Background {
    mother: string;
    brothers: string;
    others: string;
+   habitad: string;
 }

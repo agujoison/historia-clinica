@@ -99,6 +99,18 @@ export class PatientBackgroundComponent implements OnInit {
     return this.editForm.get('talla');
   }
 
+  get vacunacion() {
+    return this.editForm.get('vacunacion');
+  }
+
+  get enfermedad() {
+    return this.editForm.get('enfermedad');
+  }
+
+  get alergico() {
+    return this.editForm.get('alergico');
+  }
+
   updateStudentData() {
     this.editForm = this.fb.group({
       dateOfBirth: [''],
@@ -116,7 +128,10 @@ export class PatientBackgroundComponent implements OnInit {
       ojo: [''],
       suplementos: [''],
       odontologico: [''],
-      traumatologico: ['']
+      traumatologico: [''],
+      vacunacion: [''],
+      enfermedad: [''],
+      alergico: ['']
     })
   }
 

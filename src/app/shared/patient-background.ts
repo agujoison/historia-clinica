@@ -15,4 +15,7 @@ export interface PatientBackground {
    suplementos: string;
    odontologico: string;
    traumatologico: string;
+   vacunacion: string;
+   enfermedad: string;
+   alergico: string;
 }

@@ -1,6 +1,6 @@
 <div class="pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Add Patient</h1>
-  <p class="custom-text"><strong>Patient record management system</strong></p>
+  <h1 class="h2">Nuevo paciente</h1>
+  <p class="custom-text"><strong>Datos filatoreos</strong></p>
 </div>
 
 <!-- Student form -->
@@ -11,40 +11,33 @@
         <div class="col-md-12 mb-3">
           <label>DNI</label>
           <input type="text" formControlName="dni" class="form-control" required>
-          <p *ngIf="dni.touched && dni.invalid" class="error"><sup>*</sup>Please provide DNI</p>
-          <p *ngIf="dni.errors?.pattern" class="error"><sup>*</sup>Use numbers only
-            number</p>
+          <p *ngIf="dni.touched && dni.invalid" class="error"><sup>*</sup>Por favor ingrese DNI</p>
         </div>
         <div class="col-md-12 mb-3">
-          <label>First name</label>
+          <label>Nombre</label>
           <input type="text" formControlName="firstName" class="form-control" required>
-          <p *ngIf="firstName.touched && firstName.invalid" class="error"><sup>*</sup>Please enter atleast first name</p>
-          <p *ngIf="firstName.errors?.minlength" class="error"><sup>*</sup>Name shouldn't be less than 2 words</p>
+          <p *ngIf="firstName.touched && firstName.invalid" class="error"><sup>*</sup>Por favor ingrese nombre</p>
         </div>
         <div class="col-md-12 mb-3">
-          <label>Last name</label>
+          <label>Apellido</label>
           <input type="text" formControlName="lastName" class="form-control">
         </div>
       </div>
       <div class="row">
         <div class="col-md-12 mb-3">
-          <label>Address</label>
+          <label>Dirección</label>
           <input type="text" formControlName="address" class="form-control" required>
-          <p *ngIf="address.touched && address.invalid" class="error"><sup>*</sup>Please provide address</p>
-          <p *ngIf="address.errors?.pattern" class="error"><sup>*</sup>Please enter correct address</p>
+          <p *ngIf="address.touched && address.invalid" class="error"><sup>*</sup>Por favor ingrese dirección</p>
         </div>
         <div class="col-md-12 mb-3">
-          <label>Mobile number</label>
+          <label>Telefono</label>
           <input type="text" formControlName="mobileNumber" class="form-control" required>
-          <p *ngIf="mobileNumber.touched && mobileNumber.invalid" class="error"><sup>*</sup>Please provide contact
-            number</p>
-          <p *ngIf="mobileNumber.errors?.pattern" class="error"><sup>*</sup>Use numbers only
-            number</p>
+          <p *ngIf="mobileNumber.touched && mobileNumber.invalid" class="error"><sup>*</sup>Por favor ingrese telefono</p>
         </div>
       </div>
       <div class="form-group text-right">
-        <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
-        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Add Patient</button>
+        <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Limpiar campos</button>
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Guardar</button>
       </div>
     </div>
   </div>

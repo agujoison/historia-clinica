@@ -53,9 +53,9 @@ export class StudentsListComponent implements OnInit {
 
   // Method to delete student object
   deleteStudent(student) {
-    if (window.confirm('Are sure you want to delete this patient ?')) { // Asking from user before Deleting student data.
+    if (window.confirm('Esta seguro que desea eliminar el paciente ?')) { // Asking from user before Deleting student data.
       this.crudApi.DeleteStudent(student.$key) // Using Delete student API to delete student.
-      this.toastr.success(student.firstName + ' successfully deleted!'); // Alert message will show up when student successfully deleted.
+      this.toastr.success(student.firstName + ' eliminado!'); // Alert message will show up when student successfully deleted.
     }
   }
 

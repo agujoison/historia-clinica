@@ -71,7 +71,7 @@ export class FamilyBackgroundComponent implements OnInit {
   // Below methods fire when somebody click on submit button
   updateForm(){
     this.crudApi.UpdateBackground(this.editForm.value);       // Update student data using CRUD API
-    this.toastr.success('updated successfully');   // Show succes message when data is successfully submited
+    this.toastr.success('actualizado');   // Show succes message when data is successfully submited
     this.router.navigate(['view-students']);               // Navigate to student's list page when student data is updated
   }
 }

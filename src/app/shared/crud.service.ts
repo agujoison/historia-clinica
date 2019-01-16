@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../shared/student';  // Student data type interface class
+import { ControlSano } from '../shared/control-sano';  // Student data type interface class
 import { Background } from '../shared/family-background';
 import { PatientBackground } from '../shared/patient-background';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';  // Firebase modules for Database, Data list and Single object
@@ -11,6 +12,8 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angula
 export class CrudService {
   studentsRef: AngularFireList<any>;    // Reference to Student data list, its an Observable
   studentRef: AngularFireObject<any>;   // Reference to Student object, its an Observable too
+  controlesSanoRef: AngularFireList<any>;    // Reference to Student data list, its an Observable
+  controlSanoRef: AngularFireObject<any>;   // Reference to Student object, its an Observable too
 
   // Inject AngularFireDatabase Dependency in Constructor
   constructor(private db: AngularFireDatabase) { }
@@ -22,7 +25,20 @@ export class CrudService {
       lastName: student.lastName,
       address: student.address,
       mobileNumber: student.mobileNumber,
-      dni: student.dni
+      dni: student.dni,
+    })
+  }
+
+  // Create Student
+  AddControlSano(controlSano: ControlSano) {
+    this.controlesSanoRef.push({
+       fecha: controlSano.fecha,
+       edad: controlSano.edad,
+       talla: controlSano.talla,
+       peso: controlSano.peso,
+       pc: controlSano.pc,
+       imc: controlSano.imc,
+       pautas: controlSano.pautas
     })
   }
 
@@ -36,6 +52,18 @@ export class CrudService {
   GetStudentsList() {
     this.studentsRef = this.db.list('students-list');
     return this.studentsRef;
+  }
+
+  // Fetch Students List
+  GetControlSanoList(id: string) {
+    this.controlesSanoRef = this.db.list('students-list/' + id + '/controlSanoList');
+    return this.controlesSanoRef;
+  }
+
+  // Fetch Single Student Object
+  GetControlSano(idStudent: string, idControl: string) {
+    this.controlSanoRef = this.db.object('students-list/' + idStudent + '/controlSanoList/' + idControl);
+    return this.controlSanoRef;
   }
 
   // Update Student Object
@@ -62,10 +90,35 @@ export class CrudService {
     })
   }
 
+  UpdateControlSanoList(controlSanoList: ControlSano[]) {
+    this.studentRef.update({
+      controlSanoList
+    })
+  }
+
+  UpdateControlSano(controlSano: ControlSano) {
+    this.controlSanoRef.update({
+      edad : controlSano.edad,
+      fecha : controlSano.fecha,
+      imc : controlSano.imc,
+      observaciones : controlSano.observaciones,
+      pautas : controlSano.pautas,
+      pc : controlSano.pc,
+      peso : controlSano.peso,
+      talla : controlSano.talla,
+      vacunacion : controlSano.vacunacion
+    })
+  }
+
   // Delete Student Object
   DeleteStudent(id: string) {
     this.studentRef = this.db.object('students-list/'+id);
     this.studentRef.remove();
+  }
+
+  DeleteControlSano(id: string, idControl: string) {
+    this.controlSanoRef = this.db.object('students-list/' + id + '/controlSanoList/'+idControl);
+    this.controlSanoRef.remove();
   }
 
 }

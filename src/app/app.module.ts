@@ -27,6 +27,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { FamilyBackgroundComponent } from './family-background/family-background.component';
 import { PatientBackgroundComponent } from './patient-background/patient-background.component';
+import { NinoSanoComponent } from './nino-sano/nino-sano.component';
+import { AddControlSanoComponent } from './add-control-sano/add-control-sano.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { PatientBackgroundComponent } from './patient-background/patient-backgro
     StudentsListComponent,
     EditStudentComponent,
     FamilyBackgroundComponent,
-    PatientBackgroundComponent
+    PatientBackgroundComponent,
+    NinoSanoComponent,
+    AddControlSanoComponent
   ],
   imports: [
     BrowserModule,

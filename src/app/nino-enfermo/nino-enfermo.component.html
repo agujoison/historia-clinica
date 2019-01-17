@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Control Niño Enfermo de {{Student.firstName}} {{Student.lastName}}</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group">
+      <!-- goBack() methos to back to previous component -->
+      <button class="btn btn-sm btn-outline-secondary" (click)="goBack()">Volver</button>
+    </div>
+  </div>
+  <!-- It won't show if there is no student data -->
+</div>
+
+<div class="pricing-header mx-auto">
+
+  <!-- Preloader shows before the data loads-->
+  <div class="no-data text-center" *ngIf="preLoader">
+    <img src="assets/preloader.gif" class="preloader-icon" alt="No student">
+  </div>
+
+  <!-- Showing students data -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+      <thead>
+      <tr>
+        <th scope="col">Fecha</th>
+        <th scope="col">Motivo</th>
+        <th scope="col">Diagnostico</th>
+        <th scope="col">Tratamiento</th>
+        <th class="text-center" scope="col">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- *ngFor loop iterates over Student array and fetch the student's data -->
+      <!-- paginate pipe will add pagination in student's list, it won't show if items are less then 7 -->
+      <tr *ngFor="let control of ControlEnfermo| paginate: { itemsPerPage: 7, currentPage: p }; let i = index;">
+        <th scope="row">{{control.fecha}}</th>
+        <td>{{control.motivo}}</td>
+        <td>{{control.diagnostico}}</td>
+        <td>{{control.tratamiento}}</td>
+        <td class="text-center action-block">
+          <i class="far fa-edit" routerLink="/add-control-enfermo/{{id}}/{{control.$key}}" data-toggle="tooltip" title="Editar control"></i>
+          <i class="far fa-trash-alt" (click)="deleteControlEnfermo(id, control)" data-toggle="tooltip" title="Eliminar control"></i></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <a routerLink="/add-control-enfermo/{{id}}/null" class="btn btn-success" >
+    <i class="fas fa-plus custom-fa-plus"></i>
+    Nuevo control
+  </a>
+  <!-- Pagination -->
+  <pagination-controls (pageChange)="p = $event" autoHide="true" responsive="true"></pagination-controls>
+</div>

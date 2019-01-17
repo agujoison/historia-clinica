@@ -29,6 +29,8 @@ import { FamilyBackgroundComponent } from './family-background/family-background
 import { PatientBackgroundComponent } from './patient-background/patient-background.component';
 import { NinoSanoComponent } from './nino-sano/nino-sano.component';
 import { AddControlSanoComponent } from './add-control-sano/add-control-sano.component';
+import { AddControlEnfermoComponent } from './add-control-enfermo/add-control-enfermo.component';
+import { NinoEnfermoComponent } from './nino-enfermo/nino-enfermo.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { AddControlSanoComponent } from './add-control-sano/add-control-sano.com
     FamilyBackgroundComponent,
     PatientBackgroundComponent,
     NinoSanoComponent,
-    AddControlSanoComponent
+    AddControlSanoComponent,
+    AddControlEnfermoComponent,
+    NinoEnfermoComponent
   ],
   imports: [
     BrowserModule,
